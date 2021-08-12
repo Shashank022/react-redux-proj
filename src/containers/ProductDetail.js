@@ -9,8 +9,6 @@ import { selectedProduct, removeSelectedProduct } from '../redux/actions/product
 const ProductDetails = () =>{
     const product = useSelector((state) => state.product);
     const {productId} = useParams();
-    console.log(productId);
-    console.log(product);
     const dispatch = useDispatch();
     const { image, title, price, category, description } = product;
     const fetchProductDetails = async() =>{
