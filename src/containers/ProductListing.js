@@ -4,6 +4,7 @@ import ProductComponent from './ProductComponent';
 import axios from 'axios';
 import { useEffect  } from 'react';
 import { setProducts} from '../redux/actions/productActions';
+import SearchBar from "./SearchBar";
 
 const ProductListing = () =>{
     const products = useSelector((state) => state);
@@ -17,8 +18,8 @@ const ProductListing = () =>{
         });
         if(response){
             dispatch(setProducts(response.data));
+            console.log(response.data);
         }
-        console.log(response.data);
     };
 
     useEffect(()=>{
@@ -27,9 +28,12 @@ const ProductListing = () =>{
 
     console.log("products",products);
 return(
+    <div>
+        <div  ><SearchBar/></div>
         <div className="ui grid container">
            <ProductComponent/>
         </div>
+    </div>
     )
 }
 
